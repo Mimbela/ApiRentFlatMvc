@@ -11,9 +11,9 @@ namespace ApiRentFlatMvc.Repositories
     {
         RentContext entidad;
 
-        public Repository(RentContext entidad)
+        public Repository()
         {
-            this.entidad = entidad;
+            this.entidad = new RentContext();
         }
 
         //--------------
@@ -298,7 +298,7 @@ namespace ApiRentFlatMvc.Repositories
 
             Costas cost = this.entidad.Costas.Single(z => z.Cod_Provincia == modelo.Cod_Provincia);
             cost.NombreProvincia = modelo.NombreProvincia;
-            cost.Foto = modelo.Foto;
+            //cost.Foto = modelo.Foto;
 
             this.entidad.SaveChanges();
 
@@ -395,7 +395,7 @@ namespace ApiRentFlatMvc.Repositories
             tipo.Ciudad = modelo.Ciudad;
             tipo.Direccion = modelo.Direccion;
             tipo.EmailCliente = modelo.EmailCliente;
-            tipo.IdCliente = modelo.IdCliente;
+            //tipo.IdCliente = modelo.IdCliente;
             tipo.NombreCliente = modelo.NombreCliente;
             tipo.Telefono = modelo.Telefono;
 

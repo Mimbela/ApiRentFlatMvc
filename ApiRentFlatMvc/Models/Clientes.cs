@@ -12,7 +12,7 @@ namespace ApiRentFlatMvc.Models
     {
         [Key]
         [Column("IdCliente")]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdCliente { get; set; }
 
         [Column("NombreCliente")]
@@ -31,7 +31,7 @@ namespace ApiRentFlatMvc.Models
         public String Ciudad { get; set; }
 
         [Column("Dni")]
-        public int Dni { get; set; }
+        public string Dni { get; set; }
 
         [Column("Telefono")]
         public int Telefono { get; set; }

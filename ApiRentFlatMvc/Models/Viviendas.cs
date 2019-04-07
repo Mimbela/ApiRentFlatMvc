@@ -11,7 +11,7 @@ namespace ApiRentFlatMvc.Models
     public class Viviendas
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Cod_casa")]
         public int Cod_casa { get; set; }
 

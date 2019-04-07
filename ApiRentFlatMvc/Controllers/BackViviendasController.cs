@@ -11,9 +11,9 @@ namespace ApiRentFlatMvc.Controllers
 {
     public class BackViviendasController : ApiController
     {
-        IRepository repo;
+        Repository repo;
 
-        public BackViviendasController(IRepository repo)
+        public BackViviendasController(Repository repo)
         {
             this.repo = repo;
         }
@@ -35,6 +35,24 @@ namespace ApiRentFlatMvc.Controllers
             return this.repo.GetViviendas();
         }
 
+        //---------------------
+        [HttpGet]
+        [Route("api/BuscarVivienda/{id}")]
+        public Viviendas BuscarVivienda(int id)
+        {
+            return this.repo.BuscarViviendas(id);
+        }
+
+        [HttpGet]
+        [Route("api/BuscarTipoVivienda/{id}")]
+        public Tipos_Vivienda BuscarTipoVivienda(int id)
+        {
+            return this.repo.BuscarTipoVivienda(id);
+        }
+
+
+        //----------------------------------
+
         [HttpPost]
         [Route("api/GetViviendasByFilter")]
         public List<VIVIENDASPORFILTRO> GetViviendasByFilter(BusquedaModel content)
@@ -44,10 +62,45 @@ namespace ApiRentFlatMvc.Controllers
 
         }
 
-        //[HttpPost]
-        //[Route("api/")]
+        //-----------------------------------
+        [Route("api/InsertarVivienda")]
+        public int Post(Viviendas cost)
+        {
+            return this.repo.InsertarViviendas(cost);
+
+        }
 
 
+        [Route("api/InsertarTipoVivienda")]
+        public void Post(Tipos_Vivienda cost)
+        {
+            this.repo.InsertarTipoViviendas(cost);
+        }
+        //-------------------------
+        [Route("api/ModificarTipoVivienda/{id}")]
+        public void Put(Tipos_Vivienda h, int id)
+        {
+            this.repo.ModificarTipoVivienda(h);
+        }
+
+        [Route("api/ModificarVivienda/{id}")]
+        public void Put(Viviendas h, int id)
+        {
+            this.repo.ModificarVivienda(h);
+        }
+
+        //-----------------
+        [Route("api/EliminarTipoVivienda/{id}")]
+        public void Delete(int id)
+        {
+            this.repo.EliminarTipoViviendas(id);
+        }
+
+        [Route("api/EliminarVivienda/{id}")]
+        public void DeleteVivienda(int id)
+        {
+            this.repo.EliminarViviendas(id);
+        }
 
     }
 }

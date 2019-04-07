@@ -11,7 +11,7 @@ namespace ApiRentFlatMvc.Models
     public class Galeria_Fotos
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Cod_imagen")]
         public int Cod_imagen { get; set; }
 

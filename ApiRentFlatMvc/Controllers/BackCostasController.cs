@@ -11,11 +11,11 @@ namespace ApiRentFlatMvc.Controllers
 {
     public class BackCostasController : ApiController
     {
-        IRepository repo;
+        Repository repo;
 
-        public BackCostasController(IRepository repo)
+        public BackCostasController()
         {
-            this.repo = repo;
+            this.repo = new Repository();
         }
         //---------------------
         [HttpGet]
@@ -23,6 +23,32 @@ namespace ApiRentFlatMvc.Controllers
         public List<Costas> GetNombreCostas()
         {
             return this.repo.GetNombreCostas();
+        }
+
+        //-----------------------------------------------------
+        [HttpGet]
+        [Route("api/BuscarCosta/{id}")]
+        public Costas BuscarCosta(int id)
+        {
+            return this.repo.BuscarCosta(id);
+        }
+
+        [Route("api/InsertarCosta")]
+        public void Post(Costas cost)
+        {
+            this.repo.InsertarCosta(cost);
+        }
+
+        [Route("api/ModificarCosta/{id}")]
+        public void Put(Costas h, int id)
+        {
+            this.repo.ModificarCosta(h);
+        }
+
+        [Route("api/EliminarCosta/{id}")]
+        public void Delete(int id)
+        {
+            this.repo.EliminarCosta(id);
         }
 
     }

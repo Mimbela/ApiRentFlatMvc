@@ -11,7 +11,7 @@ namespace ApiRentFlatMvc.Models
     public class Usuarios
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Cod_usuario")]
         public int Cod_usuario { get; set; }
 
@@ -34,10 +34,10 @@ namespace ApiRentFlatMvc.Models
         public string Email { get; set; }
 
         [Column("Telefono")]
-        public int Telefono { get; set; }
+        public string Telefono { get; set; }
 
         [Column("Mostrar_info_contacto")]
-        public byte[] Mostrar_info_contacto { get; set; }
+        public bool Mostrar_info_contacto { get; set; }
 
         [Column("Perfil")]
         public String Perfil { get; set; }

@@ -12,7 +12,7 @@ namespace ApiRentFlatMvc.Models
     {
             [Key]
             [Column("Cod_Provincia")]
-            [DatabaseGenerated(DatabaseGeneratedOption.None)]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Cod_Provincia { get; set; }
 
             [Column("NombreProvincia")]
