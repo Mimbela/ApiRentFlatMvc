@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace ApiRentFlatMvc.Controllers
@@ -49,6 +50,20 @@ namespace ApiRentFlatMvc.Controllers
         public void Delete(int id)
         {
             this.repo.EliminarUsuario(id);
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("api/PerfilEmpleado")]
+        public Usuarios PerfilEmpleado()
+        {
+            ClaimsIdentity identidad =
+                User.Identity as ClaimsIdentity;
+            string empno =
+                identidad.FindFirst(ClaimTypes.NameIdentifier).Value
+                ;
+            Usuarios empleado = this.repo.ExisteEmpleado(User.Identity.Name,empno);
+            return empleado;
         }
 
     }

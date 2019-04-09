@@ -54,6 +54,9 @@ namespace ApiRentFlatMvc.Data
 
             return consulta;
         }
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<RentContext>(null);
+        }
     }
 }

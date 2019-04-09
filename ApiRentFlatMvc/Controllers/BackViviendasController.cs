@@ -9,18 +9,20 @@ using System.Web.Http;
 
 namespace ApiRentFlatMvc.Controllers
 {
+    //[Authorize]
     public class BackViviendasController : ApiController
     {
         Repository repo;
 
-        public BackViviendasController(Repository repo)
+        public BackViviendasController()
         {
-            this.repo = repo;
+            this.repo = new Repository();
         }
 
         //-------------------
         //api/Tipos_Vivienda
         [HttpGet]
+      
         [Route("api/GetTiposViviendas")]
         public List<Tipos_Vivienda> ObtenerTiposViviendas()
         {

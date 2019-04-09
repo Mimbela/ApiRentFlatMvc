@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace ApiRentFlatMvc.Controllers
@@ -19,6 +20,7 @@ namespace ApiRentFlatMvc.Controllers
         }
         //---------------------
         [HttpGet]
+       
         [Route("api/GetNombreCostas")]
         public List<Costas> GetNombreCostas()
         {
@@ -50,6 +52,8 @@ namespace ApiRentFlatMvc.Controllers
         {
             this.repo.EliminarCosta(id);
         }
+
+       
 
     }
 }

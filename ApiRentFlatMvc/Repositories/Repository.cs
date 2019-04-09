@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ApiRentFlatMvc.Data;
 using ApiRentFlatMvc.Models;
+using System;
 
 namespace ApiRentFlatMvc.Repositories
 {
-    public class Repository : IRepository
+    public class Repository 
     {
         RentContext entidad;
 
@@ -104,8 +104,7 @@ namespace ApiRentFlatMvc.Repositories
         public Usuarios ExisteEmpleado(string login, string password)
         {
             var consulta = from datos in entidad.Usuarios
-                           where datos.Login == login
-                           && datos.Password == password
+                           where datos.Login == login  && datos.Password == password
                            select datos;
             return consulta.FirstOrDefault();
         }
