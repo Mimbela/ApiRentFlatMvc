@@ -72,6 +72,13 @@ namespace ApiRentFlatMvc.Controllers
 
         }
 
+        [HttpPost]
+        [Route("api/InsertarGaleriaFotosAsync")]
+        public int InsertarGaleriaFotos(Galeria_Fotos galeria)
+        {
+            return this.repo.InsertarImagen(galeria);
+        }
+
 
         [Route("api/InsertarTipoVivienda")]
         public void Post(Tipos_Vivienda cost)
