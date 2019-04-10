@@ -34,18 +34,21 @@ namespace ApiRentFlatMvc.Controllers
             return this.repo.BuscarUsuario(id);
         }
 
+        [Authorize]
         [Route("api/InsertarUsuario")]
         public void Post(Usuarios cost)
         {
             this.repo.InsertarUsuarios(cost);
         }
 
+        [Authorize]
         [Route("api/ModificarUsuario/{id}")]
         public void Put(Usuarios h, int id)
         {
             this.repo.ModificarUsuario(h);
         }
 
+        [Authorize]
         [Route("api/EliminarUsuario/{id}")]
         public void Delete(int id)
         {

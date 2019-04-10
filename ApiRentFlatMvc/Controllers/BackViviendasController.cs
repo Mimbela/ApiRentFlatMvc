@@ -64,6 +64,7 @@ namespace ApiRentFlatMvc.Controllers
 
         }
 
+        [Authorize]
         //-----------------------------------
         [Route("api/InsertarVivienda")]
         public int Post(Viviendas cost)
@@ -72,6 +73,7 @@ namespace ApiRentFlatMvc.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         [Route("api/InsertarGaleriaFotosAsync")]
         public int InsertarGaleriaFotos(Galeria_Fotos galeria)
@@ -79,19 +81,22 @@ namespace ApiRentFlatMvc.Controllers
             return this.repo.InsertarImagen(galeria);
         }
 
-
+        [Authorize]
         [Route("api/InsertarTipoVivienda")]
         public void Post(Tipos_Vivienda cost)
         {
             this.repo.InsertarTipoViviendas(cost);
         }
         //-------------------------
+
+        [Authorize]
         [Route("api/ModificarTipoVivienda/{id}")]
         public void Put(Tipos_Vivienda h, int id)
         {
             this.repo.ModificarTipoVivienda(h);
         }
 
+        [Authorize]
         [Route("api/ModificarVivienda/{id}")]
         public void Put(Viviendas h, int id)
         {
@@ -99,12 +104,14 @@ namespace ApiRentFlatMvc.Controllers
         }
 
         //-----------------
+        [Authorize]
         [Route("api/EliminarTipoVivienda/{id}")]
         public void Delete(int id)
         {
             this.repo.EliminarTipoViviendas(id);
         }
 
+        [Authorize]
         [Route("api/EliminarVivienda/{id}")]
         public void DeleteVivienda(int id)
         {
